@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshan Prasad - Full-Stack Code Artisan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP (GreenSock Animation Platform) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- three.js (for 3D background) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="w-full">
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 text-sm">
+            <div>
+                <a href="#" class="font-bold magnetic-btn">ROSHAN PRASAD</a>
+            </div>
+            <div class="hidden md:flex gap-8">
+                <a href="#about" class="magnetic-btn hover:text-white transition-colors">About</a>
+                <a href="#skills" class="magnetic-btn hover:text-white transition-colors">Skills</a>
+                <a href="#work" class="magnetic-btn hover:text-white transition-colors">Work</a>
+                <a href="#contact" class="magnetic-btn hover:text-white transition-colors">Contact</a>
+            </div>
+            <div>
+                <a href="#contact"
+                    class="magnetic-btn border border-white/50 rounded-full px-5 py-2 hover:bg-white hover:text-black transition-all duration-300">
+                    Get in Touch
+                </a>
+            </div>
+        </nav>
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="h-screen flex flex-col justify-center items-center text-center relative">
+            <h1 class="hero-title text-6xl md:text-9xl font-bold tracking-tighter">
+                <span>Full-Stack</span>
+                <br>
+                <span>Code</span>
+                <span>Artisan</span>
+            </h1>
+            <p class="text-xl md:text-2xl mt-8 max-w-2xl reveal-up">
+                Crafting robust back-ends and seamless mobile experiences.
+                Specializing in Node.js, PHP, and Kotlin.
+            </p>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="#e0e0e0" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="reveal-up">
+                <h3 class="text-sm uppercase tracking-widest text-gray-400">The Architect</h3>
+                <h2 class="text-4xl md:text-6xl mt-4 mb-8">Hello, I'm Roshan Prasad.</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    I'm a passionate student who loves building apps that connect strong backend logic
+                    with smooth, user-friendly design.
+                    I'm currently exploring how to create digital experiences that feel both intuitive and efficient.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    My passion lies in the entire lifecycle of a product—from the initial blueprint of a database to the
+                    final polish of a UI animation in Jetpack Compose. I thrive on solving complex problems and turning
+                    ambitious ideas into reality.
+                </p>
+            </div>
+
+            <div class="reveal-up h-96 w-full flex items-center justify-center text-center">
+                <p class="text-gray-400 italic text-lg max-w-md animate-pulse">
+                    “Engineering elegance, one function at a time.”
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. Skills Section -->
+        <section id="skills" class="text-center">
+            <h3 class="text-sm uppercase tracking-widest text-gray-400 reveal-up">The Toolkit</h3>
+            <h2 class="text-4xl md:text-6xl mt-4 mb-16 reveal-up">Core Technologies</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Node.js Card -->
+                <div
+                    class="skill-card group p-8 rounded-2xl text-left bg-gray-800 hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                    <div class="flex items-center mb-4 space-x-3">
+                        <div class="p-3 bg-green-500/10 rounded-xl group-hover:bg-green-500/20 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                                alt="Node.js Icon" class="w-10 h-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Node.js</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Building high-performance, scalable applications using
+                        <span class="text-green-400 font-medium">Next.js</span>,
+                        <span class="text-green-400 font-medium">NestJS</span>, and
+                        <span class="text-green-400 font-medium">Express.js</span>.
+                        Focused on crafting modern, maintainable architectures and creating efficient
+                        <span class="text-green-400 font-medium">RESTful</span> and
+                        <span class="text-green-400 font-medium">GraphQL APIs</span> that power seamless user
+                        experiences.
+                    </p>
+                </div>
+
+                <!-- PHP Card -->
+                <div class="skill-card group p-8 rounded-2xl text-left bg-gray-800 hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl cursor-pointer"
+                    style="transition-delay: 0.2s;">
+                    <div class="flex items-center mb-4 space-x-3">
+                        <div class="p-3 bg-indigo-500/10 rounded-xl group-hover:bg-indigo-500/20 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                                alt="PHP Icon" class="w-10 h-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">PHP</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Building reliable and maintainable server-side applications with modern <span
+                            class="text-indigo-400 font-medium">PHP</span>.
+                        Familiar with <span class="text-indigo-400 font-medium">Laravel</span> for secure, scalable
+                        development.
+                    </p>
+                </div>
+
+
+                <!-- Kotlin Card -->
+                <div class="skill-card group p-8 rounded-2xl text-left bg-gray-800 hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl cursor-pointer"
+                    style="transition-delay: 0.4s;">
+                    <div class="flex items-center mb-4 space-x-3">
+                        <div class="p-3 bg-orange-500/10 rounded-xl group-hover:bg-orange-500/20 transition-colors">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+                                alt="Kotlin Icon" class="w-10 h-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Kotlin & Jetpack</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Creating clean and responsive Android apps with <span
+                            class="text-orange-400 font-medium">Kotlin</span> and <span
+                            class="text-orange-400 font-medium">Jetpack Compose</span>.
+                        Enthusiastic about <span class="text-orange-400 font-medium">Coroutines</span> and <span
+                            class="text-orange-400 font-medium">MVVM</span> architecture for scalable mobile solutions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Work Section (Horizontal Scroll) -->
+        <section id="work" class="py-0">
+            <div class="text-center pt-16 pb-16">
+                <h3 class="text-sm uppercase tracking-widest text-gray-400 reveal-up">The Gallery</h3>
+                <h2 class="text-4xl md:text-6xl mt-4 mb-4 reveal-up">Selected Work</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto reveal-up">A glimpse into the solutions I've
+                    architected and built.</p>
+            </div>
+
+            <div class="relative py-12 overflow-hidden">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Featured Projects</h2>
+
+                <!-- Scroll Container -->
+                <div class="horizontal-scroll-section overflow-x-auto scrollbar-hide">
+                    <div class="project-gallery flex space-x-8 px-6 snap-x snap-mandatory">
+
+                        <!-- Project 1 -->
+                        <div class="project-card relative min-w-[320px] md:min-w-[400px] lg:min-w-[480px] snap-center overflow-hidden rounded-2xl group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                            style="background-image: url('assets/anime-explorer.jpg'); background-size: cover; background-position: top;">
+
+                            <!-- Overlay -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500">
+                            </div>
+
+                            <!-- Top-right icons -->
+                            <div class="absolute top-4 right-4 flex space-x-3 z-20">
+                                <a href="https://github.com/klee3/anime-explorer" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-amber-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.018.005 2.045.137 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .32.218.694.825.576C20.565 21.796 24 17.303 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://chic-starburst-c56edb.netlify.app/" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-amber-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                        <path d="M5 5h5V3H3v7h2V5zm0 14v-5H3v7h7v-2H5zm14 0h-5v2h7v-7h-2v5z" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="absolute inset-0 flex flex-col justify-end p-6 z-10 text-white">
+                                <span class="text-sm font-semibold text-amber-400 tracking-wider uppercase">Node.js /
+                                    React</span>
+                                <h3 class="text-3xl font-bold mt-2 group-hover:text-amber-300 transition-colors">Anime
+                                    Explorer</h3>
+                                <p
+                                    class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-md">
+                                    A Node.js and React app for browsing anime with API-based search and pagination.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 🔵 Project 2 -->
+                        <div class="project-card relative min-w-[320px] md:min-w-[400px] lg:min-w-[480px] snap-center overflow-hidden rounded-2xl group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                            style="background-image: url('assets/chirper.png'); background-size: cover; background-position: top;">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500">
+                            </div>
+
+                            <!-- Top-right icons -->
+                            <div class="absolute top-4 right-4 flex space-x-3 z-20">
+                                <a href="https://github.com/klee3/chirper" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-blue-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.018.005 2.045.137 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .32.218.694.825.576C20.565 21.796 24 17.303 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/klee3/chirper" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-blue-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                        <path d="M5 5h5V3H3v7h2V5zm0 14v-5H3v7h7v-2H5zm14 0h-5v2h7v-7h-2v5z" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 p-6 z-10 text-white">
+                                <span class="text-sm font-semibold text-blue-400 tracking-wider uppercase">PHP /
+                                    Laravel</span>
+                                <h3 class="text-3xl font-bold mt-2 group-hover:text-blue-300 transition-colors">
+                                    Chirper</h3>
+                                <p
+                                    class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-md">
+                                    Chirper is a Laravel-based microblogging app that lets users share short posts and
+                                    interact in real time.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 🟢 Project 3 -->
+                        <div class="project-card relative min-w-[320px] md:min-w-[400px] lg:min-w-[480px] snap-center overflow-hidden rounded-2xl group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                            style="background-image: url('assets/quicklist.png'); background-size: cover; background-position: top;">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500">
+                            </div>
+
+                            <!-- Top-right icons -->
+                            <div class="absolute top-4 right-4 flex space-x-3 z-20">
+                                <a href="https://github.com/klee3/quicklist" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-green-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.018.005 2.045.137 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .32.218.694.825.576C20.565 21.796 24 17.303 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.analog.taskly"
+                                    target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-green-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                        <path d="M5 5h5V3H3v7h2V5zm0 14v-5H3v7h7v-2H5zm14 0h-5v2h7v-7h-2v5z" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 p-6 z-10 text-white">
+                                <span class="text-sm font-semibold text-green-400 tracking-wider uppercase">Kotlin /
+                                    Jetpack</span>
+                                <h3 class="text-3xl font-bold mt-2 group-hover:text-green-300 transition-colors">Quick
+                                    List</h3>
+                                <p
+                                    class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-md">
+                                    A simple yet smart Android app for organizing tasks by importance and keeping
+                                    priorities clear.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 🟠 Project 4 -->
+                        <!-- <div class="project-card relative min-w-[320px] md:min-w-[400px] lg:min-w-[480px] snap-center overflow-hidden rounded-2xl group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                            style="background-image: url('https://placehold.co/800x600/1a1a1a/333333?text=Real-time+Dashboard'); background-size: cover; background-position: center;">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500">
+                            </div> -->
+
+                        <!-- Top-right icons -->
+                        <!-- <div class="absolute top-4 right-4 flex space-x-3 z-20">
+                                <a href="https://github.com/username/realtime-dashboard" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-amber-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.403c1.018.005 2.045.137 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .32.218.694.825.576C20.565 21.796 24 17.303 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://dashboard.example.com" target="_blank"
+                                    class="bg-black/50 backdrop-blur-sm p-2 rounded-full text-gray-300 hover:text-white hover:bg-amber-500/80 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                        <path d="M5 5h5V3H3v7h2V5zm0 14v-5H3v7h7v-2H5zm14 0h-5v2h7v-7h-2v5z" />
+                                    </svg>
+                                </a>
+                            </div> -->
+
+                        <!-- <div class="absolute bottom-0 left-0 p-6 z-10 text-white">
+                                <span class="text-sm font-semibold text-amber-400 tracking-wider uppercase">React /
+                                    WebSocket</span>
+                                <h3 class="text-3xl font-bold mt-2 group-hover:text-amber-300 transition-colors">
+                                    Real-time Dashboard</h3>
+                                <p
+                                    class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-md">
+                                    A data visualization dashboard built with React and WebSocket for instant metric
+                                    updates and live analytics.
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="text-center">
+            <h3 class="text-sm uppercase tracking-widest text-gray-400 reveal-up">Start a Conversation</h3>
+            <h2 class="text-4xl md:text-7xl mt-4 mb-16 max-w-4xl mx-auto reveal-up">
+                Have a project in mind?
+                <br>
+                Let's build something great.
+            </h2>
+
+            <form id="contact-form" class="max-w-2xl mx-auto reveal-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <input type="text" id="name" name="name" placeholder="Your Name" class="form-input w-full" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" class="form-input w-full"
+                        required>
+                </div>
+                <div class="mb-8">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="4" class="form-input w-full"
+                        required></textarea>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="magnetic-btn text-lg font-bold bg-white text-black py-4 px-12 rounded-full hover:bg-gray-200 transition-all duration-300">
+                        Send Message
+                    </button>
+                </div>
+
+                <p id="form-status" class="mt-4 text-gray-400"></p>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center p-8 text-gray-500 text-sm">
+            <p>&copy; 2025 Roshan Prasad. All rights reserved.</p>
+            <p class="mt-2">Designed & Built with ☕</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
