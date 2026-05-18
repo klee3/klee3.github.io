@@ -2,14 +2,49 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Redirecting...</title>
+
+    <script>
+        // Read URL params
+        const params = new URLSearchParams(window.location.search);
+
+        // Example:
+        // https://klee3.github.io/?redirect=discord
+        const redirect = params.get("redirect");
+
+        // Redirect destinations
+        const redirects = {
+            discord: "https://discord.gg/RYxuCAnZvw",
+        };
+
+        // Redirect if exists
+        if (redirect && redirects[redirect]) {
+            window.location.replace(redirects[redirect]);
+        } else {
+           // Show invalid message
+            document.addEventListener("DOMContentLoaded", () => {
+                document.body.innerHTML = `
+                    <div style="
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        height:100vh;
+                        font-family:Arial;
+                        background:#111;
+                        color:white;
+                        flex-direction:column;
+                    ">
+                        <h1>Invalid URL</h1>
+                        <p>The redirect link is invalid or missing.</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
 </head>
 
 <body>
+    Redirecting...
 </body>
-
-<script>
-    window.location.href = "https://user-287-portfolio.netlify.app/"
-</script>
 
 </html>
